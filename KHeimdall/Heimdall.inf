@@ -1,0 +1,53 @@
+[Version]
+Signature="$WINDOWS NT$"
+Class=DiskDrive
+ClassGuid={4d36e967-e325-11ce-bfc1-08002be10318}
+Provider=%ManufacturerName%
+DriverVer=
+CatalogFile=Heimdall.cat
+PnPLockdown=1
+
+[DefaultInstall]
+CopyFiles=HeimdallFiles
+AddReg=HeimdallServiceRegister
+
+[DefaultInstall.Services]
+AddService=%ServiceName%,,HeimdallService
+
+[DefaultUninstall]
+DelFiles=HeimdallFiles
+DelReg=HeimdallServiceUnregister
+
+[DefaultUninstall.Services]
+DelService=%ServiceName%
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+Heimdall.sys=1
+
+[HeimdallFiles]
+Heimdall.sys
+
+[HeimdallService]
+DisplayName=%ServiceDisplayName%
+ServiceType=1
+StartType=0
+ErrorControl=1
+ServiceBinary=%12%\Heimdall.sys
+
+[HeimdallServiceRegister]
+HKLM, System\CurrentControlSet\Control\Class\{4d36e967-e325-11ce-bfc1-08002be10318}, "UpperFilters", 0x00010008, %ServiceName%
+
+[HeimdallServiceUnregister]
+HKLM, System\CurrentControlSet\Control\Class\{4d36e967-e325-11ce-bfc1-08002be10318}, "UpperFilters", 0x00018002, %ServiceName%
+
+[Strings]
+ManufacturerName="wuvzubrikits" 
+DiskName="Heimdall Source Disk"
+ServiceDisplayName="Heimdall"
+ServiceName="hmdl"
