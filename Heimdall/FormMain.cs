@@ -11,17 +11,6 @@ namespace UHeimdall
         {
 
             InitializeComponent();
-
-            //var Item1 = new AllowedDeviceControl(this);
-            //Item1.DeviceId = "Disk&Ven_JetFlash&Prod_Transcend_16GB&Rev_1100";
-            //Item1.InstanceId = "75U295UT5WSAHEVZ&0";
-
-            //var Item2 = new AllowedDeviceControl(this);
-            //Item2.DeviceId = "Disk&Ven__USB&Prod__SanDisk_3.2Gen1&Rev_1.00";
-            //Item2.InstanceId = "058F091111B&0";
-
-            //PanelBody.Controls.Add(Item1);
-            //PanelBody.Controls.Add(Item2);
         }
         private void FormMain_Load(object sender, EventArgs e)
         {
